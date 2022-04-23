@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+</head>
+
+<body>
+    <div class="CalculatorPlus">
+        <input id="input" type="number" class="CalculatorPlus__input" />
+        <div class="CalculatorPlus__buttons">
+            <button id="Plus">+</button>
+            <button id="Minus">-</button>
+            <button id="umnozh">*</button>
+            <button id="del">/</button>
+            <button id="b1">1</button>
+            <button id="b2">2</button>
+            <button id="b3">3</button>
+            <button id="b0">0</button>
+            <button id="b4">4</button>
+            <button id="b5">5</button>
+            <button id="b6">6</button>
+            <button id="clear">c</button>
+            <button id="b7">7</button>
+            <button id="b8">8</button>
+            <button id="b9">9</button>
+            <button id="result">=</button>
+        </div>
+    </div>
+</body>
+<style>
+    * {
+        box-sizing: border-box;
+    }
+
+    .CalculatorPlus__buttons {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr 1fr;
+        height: 400px;
+        width: 400px;
+    }
+
+    .CalculatorPlus__buttons>button {
+        font-size: inherit;
+    }
+
+    .CalculatorPlus__input {
+        padding-left: 34px;
+        font-size: inherit;
+        width: 400px;
+        height: 100px;
+
+    }
+
+    .CalculatorPlus {
+        font-size: 50px;
+        padding: 15px;
+        background-color: #00f382;
+        border: 2px solid black;
+        border-radius: 20px;
+        display: inline-block;
+    }
+
+</style>
+<script>
+    let hashNumber = 0
+    let action = ''
+    b1.onclick = () => {
+        input.value += '1'
+    }
+    b2.onclick = () => {
+        input.value += '2'
+    }
+    b0.onclick = () => {
+        input.value += '0'
+    }
+    b3.onclick = () => {
+        input.value += '3'
+    }
+    b4.onclick = () => {
+        input.value += '4'
+    }
+    b5.onclick = () => {
+        input.value += '5'
+    }
+    b6.onclick = () => {
+        input.value += '6'
+    }
+    b7.onclick = () => {
+        input.value += '7'
+    }
+    b8.onclick = () => {
+        input.value += '8'
+    }
+    b9.onclick = () => {
+        input.value += '9'
+    }
+    clear.onclick = () => {
+        input.value = ''
+        hashNumber = 0
+    }
+    Plus.onclick = () => {
+        action = '+'
+        hashNumber = Number(input.value)
+        input.value = ''
+    }
+    
+    Minus.onclick = () => {
+        action = '-'
+        hashNumber = Number(input.value)
+        input.value = ''
+    }
+    
+    umnozh.onclick = () => {
+        action = '*'
+        hashNumber = Number(input.value)
+        input.value = ''
+    }
+    del.onclick = () => {
+        action = '/'
+        hashNumber = Number(input.value)
+        input.value = ''
+    }
+    result.onclick = () => {
+        if (action === '+') input.value = Number(input.value) + hashNumber
+        if (action === '-') input.value = hashNumber - Number(input.value)
+        if (action === '*') input.value = Number(input.value) * hashNumber
+        if (action === '/') input.value = hashNumber / Number(input.value)
+    }
+</script>
+</html>
